@@ -13,7 +13,7 @@ To use the Cron module with the Moddable SDK, you need to add it to your project
 ```json
 	"include": [
 		{ 
-			"git":"github.com/phoddie/node-cron.git",
+			"git":"https://github.com/phoddie/node-cron.git",
 			"include":"manifest_cron.json"
 		}
 	]
