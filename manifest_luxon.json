@@ -1,0 +1,10 @@
+{
+	"modules": {
+		"luxon/*": "./luxon/*",
+		"luxon/impl/*": "./luxon/impl/*",
+		"luxon/zones/*": "./luxon/zones/*"
+	},
+	"preload": [
+		"luxon/*"
+	]
+}

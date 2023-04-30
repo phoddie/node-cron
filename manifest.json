@@ -1,14 +1,9 @@
 {
-	"include": "$(MODDABLE)/examples/manifest_base.json",
+	"include": [
+		"$(MODDABLE)/examples/manifest_base.json",
+		"./manifest_cron.json"
+	],
 	"modules": {
-		"cron/*": "./lib/*",
-		"luxon/*": "./luxon/*",
-		"luxon/impl/*": "./luxon/impl/*",
-		"luxon/zones/*": "./luxon/zones/*",
 		"*": "./main"
-	},
-	"preload": [
-		"luxon/*",
-		"cron/*"
-	]
+	}
 }

@@ -1,0 +1,9 @@
+{
+	"include": "./manifest_luxon.json",
+	"modules": {
+		"cron/*": "./lib/*"
+	},
+	"preload": [
+		"cron/*"
+	]
+}

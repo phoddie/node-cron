@@ -2,7 +2,7 @@ import Cron from "cron/cron"
 const CronJob = Cron.CronJob;
 
 trace('Before job instantiation\n');
-const job = new CronJob('0,10,20,30,40,50 * * * * *', function() {
+const job = new CronJob('* * * * * *', function() {
 	const d = new Date();
 	trace('Every second:', d, "\n");
 });
