@@ -1,5 +1,5 @@
 # Cron for Moddable SDK
-Updated April 29, 2023
+Updated May 2, 2023
 
 This repository contains a port of the [Cron module](https://github.com/kelektiv/node-cron) for use on with Embedded JavaScript using the Moddable SDK.
 
@@ -60,4 +60,40 @@ Both the Cron and Luxon modules are [preloaded](https://github.com/Moddable-Open
 ### warning: luxon/datetime: default() Settings.get defaultZone() normalizeZone() SystemZone.get instance() singleton: no const
 ### warning: luxon/datetime: default() Settings.get defaultZone() normalizeZone() FixedOffsetZone.get utcInstance() singleton: no const
 ...
+```
+
+## Manifest
+This repository includes Moddable SDK manifests for both [Cron](./manifest_cron.json) and [Luxon](./manifest_luxor.json). To use these packages in your project, include the corresponding manifest. Because Cron depends on Luxor, the Cron manifest includes the Luxor manifest.
+
+The manifests tell the Moddable SDK several things:
+
+1. Source files to include
+2. Module specifier to assign to each module
+3. Preload the modules
+
+All the sources to Cron are in [./lib](./lib). The manifest includes those using the `*` wildcard:
+
+```json
+	"modules": {
+		"cron/*": "./lib/*"
+	}
+```
+
+The left side `cron/*` is the module specifier and the right side is the module source files. The result of the above is the following:
+
+- `./lib/cron.js` has a module specifier of `cron/cron`
+- `./lib/job.js` has a module specifier of `cron/job`
+- `./lib/time.js` has a module specifier of `cron/time`
+
+That's why t use Cron in your project you import it this way:
+
+```js
+import Cron from "cron/cron"
+```
+
+This also allows cron.js to import its job and time dependencies using a relative URL path, as it does in Node.js:
+
+```js
+import Job from "./job"
+import Time from "./time"
 ```

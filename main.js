@@ -1,3 +1,5 @@
+// adapted from examples/basic.js
+
 import Cron from "cron/cron" 
 const CronJob = Cron.CronJob;
 
